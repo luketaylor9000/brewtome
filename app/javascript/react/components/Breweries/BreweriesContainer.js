@@ -7,7 +7,6 @@ const Breweries = (props) => {
   const fetchBreweries = async () => {
 
     try {
-      // const city = "boston"
       const response = await fetch(`api/v1/breweries`);
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
@@ -16,7 +15,6 @@ const Breweries = (props) => {
       }
       const returnedBreweries = await response.json();
       setBreweries(returnedBreweries);
-      console.log(returnedBreweries);
     } catch(err) {
       console.error(`Error in fetch: ${err.message}`)
     }
