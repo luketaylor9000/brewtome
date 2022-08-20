@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import BreweryTile from './BreweryTile';
 
 const Breweries = (props) => {
   const [breweries, setBreweries] = useState([])
@@ -6,7 +7,7 @@ const Breweries = (props) => {
   const fetchBreweries = async () => {
 
     try {
-      const city = "boston"
+      // const city = "boston"
       const response = await fetch(`api/v1/breweries`);
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
@@ -25,14 +26,19 @@ const Breweries = (props) => {
     fetchBreweries()
   }, [])
 
-  let breweryData
-  if (breweries.length > 0) {
-    breweryData = <div>{breweries[0].name}</div> 
-  }
+  const breweryArray = breweries.map((brewery) => {
+    return (
+      <BreweryTile
+        key={brewery.id}
+        id={brewery.id}
+        name={brewery.name}
+      />
+    )
+  })
 
   return(
     <div>
-      {breweryData}
+      {breweryArray}
     </div>
   )
 }
