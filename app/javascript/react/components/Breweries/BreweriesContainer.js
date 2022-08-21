@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDropdown from 'react-dropdown';
 import 'react-dropdown/style.css'
-import { Redirect, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Breweries = (props) => {
   const [breweries, setBreweries] = useState([])
