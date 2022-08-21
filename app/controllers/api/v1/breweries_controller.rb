@@ -1,8 +1,15 @@
 class Api::V1::BreweriesController < ApiController
 
   def index
-    search = "boston"
-    response = BreweriesService.get_breweries(search)
+    search = "Boston"
+    response = BreweriesService.get_breweries_by_city(search)
     render json: response
   end
+
+  def show
+    brewery = params[:id]
+    response = BreweriesService.get_brewery(brewery)
+    render json: response
+  end
+
 end
