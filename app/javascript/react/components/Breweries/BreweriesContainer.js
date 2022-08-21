@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import BreweryTile from './BreweryTile';
+import ReactDropdown from 'react-dropdown';
+import 'react-dropdown/style.css'
+import { Redirect } from "react-router-dom"
 
 const Breweries = (props) => {
   const [breweries, setBreweries] = useState([])
+  let defaultOption = "";
+  let selectedBreweryId = "";
 
   const fetchBreweries = async () => {
 
@@ -20,23 +24,35 @@ const Breweries = (props) => {
     }
   }
 
-  useEffect(() => {
-    fetchBreweries()
-  }, [])
-
   const breweryArray = breweries.map((brewery) => {
     return (
-      <BreweryTile
-        key={brewery.id}
-        id={brewery.id}
-        name={brewery.name}
-      />
+      {value: brewery.id, label: brewery.name}
     )
   })
 
+  function handleSelect (x) {
+    console.log(x)
+    selectedBreweryId = x.value
+    console.log(selectedBreweryId)
+  }
+
+  function handleClick () {
+    console.log(selectedBreweryId)
+    return <Redirect push to={`/breweries/${selectedBreweryId}`} />
+  }
+
+  useEffect(() => {
+    fetchBreweries();
+  }, [])
+
   return(
     <div>
-      {breweryArray}
+      <ReactDropdown 
+        options={breweryArray} 
+        onChange={handleSelect} 
+        value={defaultOption} 
+        placeholder="Select an option" />
+      <button className="button" onClick={handleClick}>submit</button>
     </div>
   )
 }

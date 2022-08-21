@@ -8,7 +8,7 @@ export const App = (props) => {
     <Router>
       <Switch>
         <Route exact path="/" component={Breweries} />
-        <Route exact path="/artists/:id" component={BreweryTile} />
+        <Route exact path="/breweries/:id" component={BreweryTile} />
       </Switch>
     </Router>
   )
