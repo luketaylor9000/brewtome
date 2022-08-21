@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ReactDropdown from 'react-dropdown';
 import 'react-dropdown/style.css'
-import { Redirect } from "react-router-dom"
+import { Redirect, Link } from "react-router-dom"
 
 const Breweries = (props) => {
   const [breweries, setBreweries] = useState([])
+  const [selectedBrewery, setSelectedBrewery] = useState()
   let defaultOption = "";
-  let selectedBreweryId = "";
 
   const fetchBreweries = async () => {
 
@@ -30,15 +30,8 @@ const Breweries = (props) => {
     )
   })
 
-  function handleSelect (x) {
-    console.log(x)
-    selectedBreweryId = x.value
-    console.log(selectedBreweryId)
-  }
-
-  function handleClick () {
-    console.log(selectedBreweryId)
-    return <Redirect push to={`/breweries/${selectedBreweryId}`} />
+  const handleSelect = (selection) => {
+    setSelectedBrewery(selection.value)
   }
 
   useEffect(() => {
@@ -52,7 +45,7 @@ const Breweries = (props) => {
         onChange={handleSelect} 
         value={defaultOption} 
         placeholder="Select an option" />
-      <button className="button" onClick={handleClick}>submit</button>
+      <Link to={`/breweries/${selectedBrewery}`} className="button">Submit</Link>
     </div>
   )
 }
