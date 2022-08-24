@@ -4,6 +4,9 @@ import ReactDropdown from 'react-dropdown';
 import 'react-dropdown/style.css'
 import { Link } from 'react-router-dom'
 
+import SearchBar from '../SearchBar/SearchBar';
+import SearchBarV2 from '../SearchBar/SearchBarV2'
+
 const Breweries = (props) => {
   const [breweries, setBreweries] = useState([])
   const [selectedBrewery, setSelectedBrewery] = useState()
@@ -36,12 +39,23 @@ const Breweries = (props) => {
 
   return(
     <div>
+      {/* <div>
       <ReactDropdown 
         options={breweryArray} 
         onChange={handleSelect} 
         value={defaultOption} 
         placeholder="Select an option" />
       <Link to={`/breweries/${selectedBrewery}`} className="button">Submit</Link>
+      </div> */}
+      {/* <div>
+        <SearchBar 
+        placeholder="Search for Breweries"
+        data={breweryArray}
+        />
+      </div> */}
+      <div>
+        <SearchBarV2 />
+      </div>
     </div>
   )
 }
