@@ -6,6 +6,7 @@ const BreweryShowPage = (props) => {
   const [brewery, setBrewery] = useState([]);
 
   let breweryId = props.match.params.id;
+  
   const fetchBrewery = async () => {
 
     axios.get(`/api/v1/breweries/${breweryId}`)
