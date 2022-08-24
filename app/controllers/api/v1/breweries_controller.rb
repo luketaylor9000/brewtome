@@ -1,4 +1,6 @@
 class Api::V1::BreweriesController < ApiController
+  before_action :authenticate_user_fetch!, except: [:index, :show]
+  before_action :authorize_user, only: [:delete]
 
   def index
     search = params[:search_query]
@@ -30,5 +32,17 @@ class Api::V1::BreweriesController < ApiController
   # end
 
   # # Review.create(...., user: current_user)
+
+  def authorize_user
+    if !user_signed_in? || !(current_user.role == "admin")
+      render json: {error: ["Only admins have access to this feature"]}
+    end
+  end
+
+  def authenticate_user_fetch!
+    if !user_signed_in?
+      render json: { error: "you must be signed in to create a new brewery listing"}, status: 401
+    end
+  end
 
 end
