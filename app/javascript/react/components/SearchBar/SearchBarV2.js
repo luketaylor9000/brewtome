@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const SearchBarV2 = () => {
@@ -29,9 +29,11 @@ const SearchBarV2 = () => {
 
   const changeHandler = (event) => {
     setSearchQuery(event.target.value)
-    fetchBreweryMatches(searchQuery)
-    console.log(filteredData)
   }
+
+  useEffect(() => {
+    fetchBreweryMatches(searchQuery)
+    }, [searchQuery])
 
   return (
     <div className="search-bar-container">
