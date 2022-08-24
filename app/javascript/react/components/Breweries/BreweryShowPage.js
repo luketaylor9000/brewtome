@@ -12,7 +12,6 @@ const BreweryShowPage = (props) => {
     .then(response => {
       const breweryDataResponse = response.data
       setBrewery(breweryDataResponse);
-      console.log(breweryDataResponse);
     }).catch(err => {
       console.log(err)
     })
