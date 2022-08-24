@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState, useEffect } from "react";
 
 const BreweryShowPage = (props) => {
@@ -5,18 +6,15 @@ const BreweryShowPage = (props) => {
 
   let breweryId = props.match.params.id;
   const fetchBrewery = async () => {
-    try {
-      const response = await fetch(`/api/v1/breweries/${breweryId}`);
-      if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`;
-        throw new Error(errorMessage);
-      }
-      const breweryDataResponse = await response.json();
-      setBrewery(breweryDataResponse)
-    } catch (err) {
-      console.log(err);
-    }
-  };
+
+    axios.get(`/api/v1/breweries/${breweryId}`)
+    .then(response => {
+      const breweryDataResponse = response.data
+      setBrewery(breweryDataResponse);
+    }).catch(err => {
+      console.log(err)
+    })
+  }
 
   useEffect(() => {
     fetchBrewery();
