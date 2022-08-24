@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from "react";
+import BreweryTopSection from './BreweryTopSection';
 
 const BreweryShowPage = (props) => {
   const [brewery, setBrewery] = useState([]);
@@ -11,6 +12,7 @@ const BreweryShowPage = (props) => {
     .then(response => {
       const breweryDataResponse = response.data
       setBrewery(breweryDataResponse);
+      console.log(breweryDataResponse);
     }).catch(err => {
       console.log(err)
     })
@@ -22,11 +24,14 @@ const BreweryShowPage = (props) => {
 
   return (
     <div>
-      <ul>
-        <p>{brewery.name}</p>
-        <p>{brewery.brewery_type}</p>
-        <p>{`${brewery.street}, ${brewery.city}, ${brewery.state}`}</p>
-      </ul>
+      <BreweryTopSection
+        key={brewery.id}
+        name={brewery.name}
+        type={brewery.brewery_type}
+        address={`${brewery.street}, ${brewery.city}, ${brewery.state}, ${brewery.postal_code}, ${brewery.country}`}
+        website={brewery.website_url}
+        phone={brewery.phone}
+      />
     </div>
   )
 }
