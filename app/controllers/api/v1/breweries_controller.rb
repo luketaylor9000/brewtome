@@ -14,6 +14,15 @@ class Api::V1::BreweriesController < ApiController
     render json: response
   end
 
+  def create
+    brewery = Brewery.new(brewery_params)
+    if brewery.save
+      render json: brewery
+    else
+      render json: { errors: brewery.errors.full_messages }, status: 400
+    end
+  end
+
   #CHECK IF BREWERY ALREADY EXISTS BEFORE GOING TO NEW BREWERY SHOW PAGE
   #IF EXISTS THEN RENDER THE EXISTING SHOW PAGE FOR THAT BREWERY
 
@@ -32,6 +41,12 @@ class Api::V1::BreweriesController < ApiController
   # end
 
   # # Review.create(...., user: current_user)
+
+  private
+  
+  def brewery_params
+    params.require(:brewery).permit(:obdb_id, :name, :type, :address, :website, :phone)
+  end
 
   def authorize_user
     if !user_signed_in? || !(current_user.role == "admin")
