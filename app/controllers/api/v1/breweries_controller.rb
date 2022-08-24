@@ -1,11 +1,5 @@
 class Api::V1::BreweriesController < ApiController
 
-  # def index
-  #   search = "Boston"
-  #   response = BreweriesService.get_breweries_by_city(search)
-  #   render json: response
-  # end
-
   def index
     search = params[:search_query]
     response = BreweriesService.get_breweries(search)
@@ -20,7 +14,7 @@ class Api::V1::BreweriesController < ApiController
 
   #CHECK IF BREWERY ALREADY EXISTS BEFORE GOING TO NEW BREWERY SHOW PAGE
   #IF EXISTS THEN RENDER THE EXISTING SHOW PAGE FOR THAT BREWERY
-  
+
   # def show 
   #   brewery = params[:id]
   #   found_brewery = Brewery.find_by(open_brewery_id: brewery)
