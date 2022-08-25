@@ -1,6 +1,5 @@
 class Brewery < ApplicationRecord
-  validates :id, presence: true
-  # validates :obdb_id, presence: true
+  validates :obdb_id, presence: true
   validates :name, presence: true
   validates :brewery_type, presence: true
   validates :street, presence: true

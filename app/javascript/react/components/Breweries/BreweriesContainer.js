@@ -4,16 +4,14 @@ import axios from 'axios';
 import SearchBar from '../SearchBar/SearchBar';
 import BreweryTile from './BreweryTile';
 
-const Breweries = (props) => {
+const Breweries = () => {
   const [savedBreweries, setSavedBreweries] = useState([]);
 
   const fetchSavedBreweries = async () => {
-
     axios.get('api/v1/breweries/saved_breweries')
     .then(response => {
       const persistedBreweries = response.data
-      setSavedBreweries(persistedBreweries)
-      // console.log(persistedBreweries)
+      setSavedBreweries(persistedBreweries.breweries)
     }).catch(err => {
       console.log(err)
     })
@@ -22,23 +20,20 @@ const Breweries = (props) => {
   useEffect(() => {
     fetchSavedBreweries();
   }, []);
-  // debugger
 
-  console.log(savedBreweries.breweries)
-
-  // let savedBreweriesArray = savedBreweries.breweries.map((brewery) => {
-  //   return (
-  //     <BreweryTile
-  //       key={brewery.id}
-  //       id={brewery.obdb_id}
-  //       name={brewery.name}
-  //       type={brewery.brewery_type}
-  //       address={`${brewery.street}, ${brewery.city}, ${brewery.state}, ${brewery.postal_code}, ${brewery.country}`}
-  //       website={brewery.website_url}
-  //       phone={brewery.phone}
-  //     />
-  //   )
-  // })
+  const savedBreweriesArray = savedBreweries.map((brewery) => {
+    return (
+      <BreweryTile
+        key={brewery.id}
+        id={brewery.obdb_id}
+        name={brewery.name}
+        type={brewery.brewery_type}
+        address={`${brewery.street}, ${brewery.city}, ${brewery.state}, ${brewery.postal_code}, ${brewery.country}`}
+        website={brewery.website_url}
+        phone={brewery.phone}
+      />
+    )
+  })
 
   return(
     <div>
@@ -46,7 +41,7 @@ const Breweries = (props) => {
         <SearchBar />
       </div>
       <div>
-        {/* {savedBreweriesArray} */}
+        {savedBreweriesArray}
       </div>
     </div>
   )

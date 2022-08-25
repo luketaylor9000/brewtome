@@ -40,7 +40,7 @@ class Api::V1::BreweriesController < ApiController
   #   if found_brewery.blank?
   #     response = BreweriesService.get_brewery(brewery)
   #     render json: response
-  #   else 
+  #   else q
   #     render json: found_brewery
   #     # note: make brewery serializer later
   #   end
@@ -52,7 +52,7 @@ class Api::V1::BreweriesController < ApiController
   private
   
   def brewery_params
-    params.require(:brewery).permit(:obdb_id, :id, :name, :brewery_type, :street, :city, :state, :country, :postal_code, :website_url, :phone)
+    params.require(:brewery).permit(:obdb_id, :name, :brewery_type, :street, :city, :state, :country, :postal_code, :website_url, :phone)
   end
 
   def authorize_user

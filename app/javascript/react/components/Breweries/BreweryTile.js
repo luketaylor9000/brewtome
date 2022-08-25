@@ -6,7 +6,7 @@ const BreweryTile = (props) => {
     <div className="grid-x small-3">
         <div className="brewery-tile">
           <div className="brewery-tile-text">
-            <Link to={`/brewery/${props.obdb_id}`}>{props.name}</Link>
+            <Link to={`/breweries/${props.id}`}>{props.name}</Link>
           </div>
         </div>
     </div>
