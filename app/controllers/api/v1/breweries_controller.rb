@@ -5,7 +5,7 @@ class Api::V1::BreweriesController < ApiController
   def index
     search = params[:search_query]
     response = BreweriesService.get_breweries(search)
-    render json: response
+    render json: response, adapter: nil
   end
 
   def show
