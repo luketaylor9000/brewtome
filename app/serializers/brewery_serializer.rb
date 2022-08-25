@@ -1,4 +1,4 @@
 class BrewerySerializer < ActiveModel::Serializer
-  attributes :id, :obdb_id, :name, :type, :address, :website, :phone
-  has_many :reviews
+  attributes :obdb_id, :id, :name, :brewery_type, :street, :city, :state, :country, :postal_code, :website_url, :phone
+  # has_many :reviews
 end

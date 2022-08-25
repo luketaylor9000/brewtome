@@ -15,12 +15,19 @@ class Api::V1::BreweriesController < ApiController
   end
 
   def create
-    brewery = Brewery.new(brewery_params)
+    new_brewery_params = brewery_params
+    new_brewery_params["obdb_id"] = params[:id]
+    brewery = Brewery.new(new_brewery_params)
     if brewery.save
       render json: brewery
     else
       render json: { errors: brewery.errors.full_messages }, status: 400
     end
+  end
+
+  def saved_breweries
+    persisted_breweries = Brewery.all
+    render json: persisted_breweries
   end
 
   #CHECK IF BREWERY ALREADY EXISTS BEFORE GOING TO NEW BREWERY SHOW PAGE
@@ -45,7 +52,7 @@ class Api::V1::BreweriesController < ApiController
   private
   
   def brewery_params
-    params.require(:brewery).permit(:obdb_id, :name, :type, :address, :website, :phone)
+    params.require(:brewery).permit(:obdb_id, :id, :name, :brewery_type, :street, :city, :state, :country, :postal_code, :website_url, :phone)
   end
 
   def authorize_user
