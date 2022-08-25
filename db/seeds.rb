@@ -7,4 +7,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 admin = User.create(email: "admin@email.com", password: "superuser", username: "admin")
-Brewery.create(name: "Nicks Brews", brewery_type: "cool", street: "here", city: "somerville", state: "MA", country: "USA", postal_code: "02143", website_url: "nick.com", phone: "603-402-0132", obdb_id: "12345")
