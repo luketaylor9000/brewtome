@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const BreweryTile = (props) => {
+
   return (
     <div className="grid-x small-3">
         <div className="brewery-tile">
