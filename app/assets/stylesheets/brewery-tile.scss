@@ -1,0 +1,24 @@
+.brewery-tile-container {
+  margin: 1.5em;
+}
+
+.brewery-tile {
+  height: 18em;
+  width: 40em;
+}
+
+.brewery-tile-title {
+  height: 5em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.brewery-tile-photo {
+  height: 14em;
+  width: 14em;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
