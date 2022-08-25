@@ -16,26 +16,18 @@ ActiveRecord::Schema.define(version: 2022_08_24_204422) do
   enable_extension "plpgsql"
 
   create_table "breweries", force: :cascade do |t|
-    t.string "obdb_id", null: false
     t.string "name", null: false
-    t.string "type", null: false
-    t.string "address", null: false
-    t.string "website"
+    t.string "brewery_type", null: false
+    t.string "street", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "country", null: false
+    t.string "postal_code", null: false
+    t.string "website_url"
     t.string "phone"
+    t.string "obdb_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string "rating", null: false
-    t.string "title", null: false
-    t.text "body", null: false
-    t.bigint "brewery_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["brewery_id"], name: "index_reviews_on_brewery_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,7 +38,6 @@ ActiveRecord::Schema.define(version: 2022_08_24_204422) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role", default: "member", null: false
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

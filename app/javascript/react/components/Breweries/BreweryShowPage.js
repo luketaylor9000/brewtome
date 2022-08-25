@@ -22,16 +22,40 @@ const BreweryShowPage = (props) => {
     fetchBrewery();
   }, []);
 
+  const submitBrewery = () => {
+    console.log("submit brewery")
+
+    axios.post('/api/v1/breweries', brewery, {
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      } 
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  }
+
   return (
     <div>
-      <BreweryTopSection
-        key={brewery.id}
-        name={brewery.name}
-        type={brewery.brewery_type}
-        address={`${brewery.street}, ${brewery.city}, ${brewery.state}, ${brewery.postal_code}, ${brewery.country}`}
-        website={brewery.website_url}
-        phone={brewery.phone}
-      />
+      <div>
+        <BreweryTopSection
+          key={brewery.id}
+          name={brewery.name}
+          type={brewery.brewery_type}
+          address={`${brewery.street}, ${brewery.city}, ${brewery.state}, ${brewery.postal_code}, ${brewery.country}`}
+          website={brewery.website_url}
+          phone={brewery.phone}
+        />
+      </div>
+      <div>
+        <button className="button" onClick={submitBrewery}>Submit</button>
+      </div>
     </div>
   )
 }
