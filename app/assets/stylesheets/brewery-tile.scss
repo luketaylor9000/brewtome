@@ -17,9 +17,10 @@
 }
 
 .brewery-tile-photo {
-  height: auto;
-  width: auto;
+  height: 12em;
+  width: 100%;
   display: flex;
+  object-fit: cover;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
