@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 const BreweryTile = (props) => {
 
   return (
-    <div className="brewery-tile-container grid-x">
-        <div className="brewery-tile card small-4">
+    <div className="brewery-tile-container row">
+        <div className="brewery-tile card small-4 columns">
           <div className="brewery-tile-title card-divider">
             <Link to={`/breweries/${props.id}`}>{props.name}</Link>
           </div>
