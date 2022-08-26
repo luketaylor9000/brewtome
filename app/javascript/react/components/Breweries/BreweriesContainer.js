@@ -40,7 +40,7 @@ const Breweries = () => {
       <div>
         <SearchBar />
       </div>
-      <div>
+      <div className="grid-x">
         {savedBreweriesArray}
       </div>
     </div>
