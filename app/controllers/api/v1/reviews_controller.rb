@@ -4,6 +4,17 @@ class Api::V1::ReviewsController < ApiController
 
   def create
     review = Review.new(review_params)
+
+    brewery_id = params[:brewery_id]
+
+    persisted_brewery = BreweriesService.get_persisted_brewery(brewery_id)
+    if persisted_brewery === nil
+      persisted_brewery = BreweriesService.create_brewery(brewery_id)
+    end
+
+    review.user = current_user
+    review.brewery_id = persisted_brewery.id
+
     if review.save
       render json: review
     else
@@ -15,6 +26,10 @@ class Api::V1::ReviewsController < ApiController
 
   def review_params 
     params.require(:review).permit(:rating, :title, :body, :brewery_id)
+  end
+
+  def brewery
+    brewery = Brewery.find_by(obdb_id: params[:brewery_id])
   end
 
   def authorize_user

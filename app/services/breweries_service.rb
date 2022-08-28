@@ -24,4 +24,28 @@ class BreweriesService
     parsed_response = JSON.parse(api_response.body)
   end
 
+  def self.get_persisted_brewery(brewery_id)
+    brewery = Brewery.find_by(obdb_id: brewery_id)
+  end
+
+  def self.create_brewery(brewery_id)
+    brewery_json = get_brewery(brewery_id)
+    new_brewery_params = brewery_json
+    new_brewery_params["obdb_id"] = brewery_id
+    new_brewery_params["id"] = nil
+    new_brewery_params["created_at"] = nil
+    new_brewery_params["updated_at"] = nil
+    brewery = Brewery.new(new_brewery_params)
+    # binding.pry
+    brewery.save
+    return brewery
+    # if brewery.save
+    #   json: brewery
+    # end
+    # if brewery.save
+    #   render json: brewery
+    # else
+    #   render json: { errors: brewery.errors.full_messages }, status: 400
+    # end
+  end
 end

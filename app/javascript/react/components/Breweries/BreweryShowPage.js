@@ -16,6 +16,7 @@ const BreweryShowPage = (props) => {
       const breweryDataResponse = response.data
       setBrewery(breweryDataResponse.brewery);
       setReviews(breweryDataResponse.brewery.reviews);
+      debugger
     }).catch(err => {
       console.log(err)
     })
@@ -23,7 +24,7 @@ const BreweryShowPage = (props) => {
 
   useEffect(() => {
     fetchBrewery();
-  }, []);
+  },[]);
 
   // eventually replace with new review
   const submitBrewery = () => {
@@ -47,13 +48,36 @@ const BreweryShowPage = (props) => {
       
       // setReviews(reviews.concat(response.review))
 
-
       console.log(response);
     })
     .catch(function (error) {
       console.log(error);
     });
 
+  }
+
+  const addReview = async (formInput) => {
+
+    axios.post(`/api/v1/breweries/${breweryId}/reviews`, formInput, {
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    })
+    .then(function (response) {
+      console.log(response);
+      setReviews(reviews.concat(response.data.review));
+      // setReviews(reviews.push(response.data.review));
+      // reviews.push(response.data.review)
+      // setReviews(reviews)
+      // debugger
+      // fetchBrewery()
+// debugger
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   return (
@@ -72,7 +96,7 @@ const BreweryShowPage = (props) => {
         <button className="button" onClick={submitBrewery}>Submit</button>
       </div>
       <div>
-        <ReviewContainer reviews={reviews} />
+        <ReviewContainer reviews={reviews} addReview={addReview} />
       </div>
     </div>
   )

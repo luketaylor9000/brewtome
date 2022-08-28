@@ -22,21 +22,18 @@ class Api::V1::BreweriesController < ApiController
     end
   end
 
-  def create
-    new_brewery_params = brewery_params
-    new_brewery_params["obdb_id"] = params[:id]
-    brewery = Brewery.new(new_brewery_params)
-    if brewery.save
-      render json: brewery
-    else
-      render json: { errors: brewery.errors.full_messages }, status: 400
-    end
-  end
+  # def create
+  #   # check if brewery exists
+  #   if Brewery.find_by(obdb_id: params[:id])
+  #   BreweriesService.create_brewery(params[:id])
+  # end
 
   def saved_breweries
     persisted_breweries = Brewery.all
     render json: persisted_breweries
   end
+
+  #Have a get_by_id method here
 
   #CHECK IF BREWERY ALREADY EXISTS BEFORE GOING TO NEW BREWERY SHOW PAGE
   #IF EXISTS THEN RENDER THE EXISTING SHOW PAGE FOR THAT BREWERY

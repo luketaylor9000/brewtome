@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import ReviewTile from "./ReviewTile";
 import moment from "moment";
+import ReviewForm from "./ReviewForm";
 
 const ReviewContainer = (props) => {
 
-  // if (props.reviews.length > 0) {
-  // const reviewsArray = props.reviews.map((review) => {
-
   let reviewsArray = props.reviews
-
+  // debugger
   if (reviewsArray !== undefined) {
+    // debugger
     reviewsArray = props.reviews.map((review) => {
       return (
         <ReviewTile
@@ -38,6 +37,7 @@ const ReviewContainer = (props) => {
       <div className="review-tiles-list-container">
         {reviewsArray}
       </div>
+      <ReviewForm addReview={props.addReview} />
     </div>
   );
 };
