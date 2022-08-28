@@ -21,6 +21,7 @@ const ReviewContainer = (props) => {
           breweryId={review.brewery_id}
           reviewId={review.id}
           userId={review.user_id}
+          username={review.username}
         />
       );
     });

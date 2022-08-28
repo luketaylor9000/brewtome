@@ -18,9 +18,7 @@ class Api::V1::BreweriesController < ApiController
       # cleaned_up_data = BreweryAPISerializer.new(response)
       render json: { brewery: response }
     else
-      # binding.pry
       render json: found_brewery
-      # binding.pry
     end
   end
 
