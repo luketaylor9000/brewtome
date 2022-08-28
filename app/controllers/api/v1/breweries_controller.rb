@@ -1,5 +1,5 @@
 class Api::V1::BreweriesController < ApiController
-  before_action :authenticate_user_fetch!, except: [:index, :show]
+  before_action :authenticate_user_fetch!, except: [:index, :show, :saved_breweries]
   before_action :authorize_user, only: [:delete]
 
   def index
@@ -10,8 +10,18 @@ class Api::V1::BreweriesController < ApiController
 
   def show
     brewery = params[:id]
-    response = BreweriesService.get_brewery(brewery)
-    render json: response
+    found_brewery = Brewery.find_by(obdb_id: brewery)
+
+    if found_brewery.blank?
+
+      response = BreweriesService.get_brewery(brewery)
+      # cleaned_up_data = BreweryAPISerializer.new(response)
+      render json: { brewery: response }
+    else
+      # binding.pry
+      render json: found_brewery
+      # binding.pry
+    end
   end
 
   def create

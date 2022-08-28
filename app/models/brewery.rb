@@ -7,4 +7,6 @@ class Brewery < ApplicationRecord
   validates :state, presence: true
   validates :country, presence: true
   validates :postal_code, presence: true
+
+  has_many :reviews
 end
