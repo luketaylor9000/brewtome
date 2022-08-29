@@ -75,9 +75,6 @@ const BreweryShowPage = (props) => {
         />
       </div>
       <div>
-        <button className="button" onClick={submitBrewery}>Submit</button>
-      </div>
-      <div>
         <ReviewContainer reviews={reviews} addReview={addReview} />
       </div>
     </div>
