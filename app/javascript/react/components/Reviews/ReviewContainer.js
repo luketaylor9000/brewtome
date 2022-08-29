@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReviewTile from "./ReviewTile";
 import moment from "moment";
 import ReviewForm from "./ReviewForm";
@@ -6,9 +6,8 @@ import ReviewForm from "./ReviewForm";
 const ReviewContainer = (props) => {
 
   let reviewsArray = props.reviews
-  // debugger
+
   if (reviewsArray !== undefined) {
-    // debugger
     reviewsArray = props.reviews.map((review) => {
       return (
         <ReviewTile
@@ -24,9 +23,6 @@ const ReviewContainer = (props) => {
         />
       );
     });
-  } else {
-    //ask user to submit a review to persist the brewery and the review to the DB
-    //maybe do this one component level up
   }
 
   return (

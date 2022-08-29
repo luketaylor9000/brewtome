@@ -36,16 +36,8 @@ class BreweriesService
     new_brewery_params["created_at"] = nil
     new_brewery_params["updated_at"] = nil
     brewery = Brewery.new(new_brewery_params)
-    # binding.pry
     brewery.save
     return brewery
-    # if brewery.save
-    #   json: brewery
-    # end
-    # if brewery.save
-    #   render json: brewery
-    # else
-    #   render json: { errors: brewery.errors.full_messages }, status: 400
-    # end
   end
+  
 end

@@ -17,15 +17,15 @@ ActiveRecord::Schema.define(version: 2022_08_28_192939) do
 
   create_table "breweries", force: :cascade do |t|
     t.string "name", null: false
-    t.string "brewery_type", null: false
-    t.string "street", null: false
+    t.string "brewery_type"
+    t.string "street"
     t.string "address_2"
     t.string "address_3"
-    t.string "city", null: false
-    t.string "state", null: false
+    t.string "city"
+    t.string "state"
     t.string "county_province"
-    t.string "postal_code", null: false
-    t.string "country", null: false
+    t.string "postal_code"
+    t.string "country"
     t.string "longitude"
     t.string "latitude"
     t.string "website_url"

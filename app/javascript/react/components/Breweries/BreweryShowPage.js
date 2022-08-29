@@ -16,7 +16,6 @@ const BreweryShowPage = (props) => {
       const breweryDataResponse = response.data
       setBrewery(breweryDataResponse.brewery);
       setReviews(breweryDataResponse.brewery.reviews);
-      debugger
     }).catch(err => {
       console.log(err)
     })
@@ -26,7 +25,6 @@ const BreweryShowPage = (props) => {
     fetchBrewery();
   },[]);
 
-  // eventually replace with new review
   const submitBrewery = () => {
     console.log("submit brewery")
 
@@ -38,16 +36,6 @@ const BreweryShowPage = (props) => {
       } 
     })
     .then(function (response) {
-
-      // if this axios request were posting a new REVIEW
-      // in the .then afterwards we would do: 
-      // setBrewery({
-      //   ...brewery, 
-      //   reviews: brewery.reviews.concat(response.review)
-      // })
-      
-      // setReviews(reviews.concat(response.review))
-
       console.log(response);
     })
     .catch(function (error) {
@@ -68,12 +56,6 @@ const BreweryShowPage = (props) => {
     .then(function (response) {
       console.log(response);
       setReviews(reviews.concat(response.data.review));
-      // setReviews(reviews.push(response.data.review));
-      // reviews.push(response.data.review)
-      // setReviews(reviews)
-      // debugger
-      // fetchBrewery()
-// debugger
     })
     .catch(function (error) {
       console.log(error);
