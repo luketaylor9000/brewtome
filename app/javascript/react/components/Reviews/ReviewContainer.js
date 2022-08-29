@@ -30,7 +30,7 @@ const ReviewContainer = (props) => {
       {reviewsArray !== undefined && 
       <h2 className="review-header">Reviews</h2>
       }
-      <div className="review-tiles-list-container">
+      <div className="review-tiles-list-container grid-x">
         {reviewsArray}
       </div>
       <ReviewForm addReview={props.addReview} />
