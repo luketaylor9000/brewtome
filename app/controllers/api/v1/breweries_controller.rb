@@ -1,5 +1,5 @@
 class Api::V1::BreweriesController < ApiController
-  before_action :authenticate_user_fetch!, except: [:index, :show]
+  before_action :authenticate_user_fetch!, except: [:index, :show, :saved_breweries]
   before_action :authorize_user, only: [:delete]
 
   def index
@@ -10,18 +10,15 @@ class Api::V1::BreweriesController < ApiController
 
   def show
     brewery = params[:id]
-    response = BreweriesService.get_brewery(brewery)
-    render json: response
-  end
+    found_brewery = Brewery.find_by(obdb_id: brewery)
 
-  def create
-    new_brewery_params = brewery_params
-    new_brewery_params["obdb_id"] = params[:id]
-    brewery = Brewery.new(new_brewery_params)
-    if brewery.save
-      render json: brewery
+    if found_brewery.blank?
+
+      response = BreweriesService.get_brewery(brewery)
+      response[:reviews] = []
+      render json: { brewery: response }
     else
-      render json: { errors: brewery.errors.full_messages }, status: 400
+      render json: found_brewery
     end
   end
 
@@ -29,25 +26,6 @@ class Api::V1::BreweriesController < ApiController
     persisted_breweries = Brewery.all
     render json: persisted_breweries
   end
-
-  #CHECK IF BREWERY ALREADY EXISTS BEFORE GOING TO NEW BREWERY SHOW PAGE
-  #IF EXISTS THEN RENDER THE EXISTING SHOW PAGE FOR THAT BREWERY
-
-  # def show 
-  #   brewery = params[:id]
-  #   found_brewery = Brewery.find_by(open_brewery_id: brewery)
-
-  #   if found_brewery.blank?
-  #     response = BreweriesService.get_brewery(brewery)
-  #     render json: response
-  #   else q
-  #     render json: found_brewery
-  #     # note: make brewery serializer later
-  #   end
-    
-  # end
-
-  # # Review.create(...., user: current_user)
 
   private
   

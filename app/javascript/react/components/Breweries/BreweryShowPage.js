@@ -1,9 +1,11 @@
 import axios from 'axios'
 import React, { useState, useEffect } from "react";
+import ReviewContainer from '../Reviews/ReviewContainer';
 import BreweryTopSection from './BreweryTopSection';
 
 const BreweryShowPage = (props) => {
-  const [brewery, setBrewery] = useState([]);
+  const [brewery, setBrewery] = useState({});
+  const [reviews, setReviews] = useState([]);
 
   let breweryId = props.match.params.id;
   
@@ -12,7 +14,8 @@ const BreweryShowPage = (props) => {
     axios.get(`/api/v1/breweries/${breweryId}`)
     .then(response => {
       const breweryDataResponse = response.data
-      setBrewery(breweryDataResponse);
+      setBrewery(breweryDataResponse.brewery);
+      setReviews(breweryDataResponse.brewery.reviews);
     }).catch(err => {
       console.log(err)
     })
@@ -20,7 +23,7 @@ const BreweryShowPage = (props) => {
 
   useEffect(() => {
     fetchBrewery();
-  }, []);
+  },[]);
 
   const submitBrewery = () => {
     console.log("submit brewery")
@@ -41,6 +44,24 @@ const BreweryShowPage = (props) => {
 
   }
 
+  const addReview = async (formInput) => {
+
+    axios.post(`/api/v1/breweries/${breweryId}/reviews`, formInput, {
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    })
+    .then(function (response) {
+      console.log(response);
+      setReviews(reviews.concat(response.data.review));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   return (
     <div>
       <div>
@@ -55,6 +76,9 @@ const BreweryShowPage = (props) => {
       </div>
       <div>
         <button className="button" onClick={submitBrewery}>Submit</button>
+      </div>
+      <div>
+        <ReviewContainer reviews={reviews} addReview={addReview} />
       </div>
     </div>
   )
