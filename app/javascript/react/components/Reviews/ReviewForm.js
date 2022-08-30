@@ -107,10 +107,10 @@ const ReviewForm = ({ addReview }) => {
         </label>
 
         <div className="review-button-div">
-          <button className="review-button" onClick={clearForm}>
+          <button className="review-button-clear button" onClick={clearForm}>
             Clear
           </button>
-          <input className="review-button" type="submit" value="Submit" />
+          <input className="review-button-submit button" type="submit" value="Submit" />
         </div>
       </form>
     </Fragment>
