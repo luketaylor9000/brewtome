@@ -27,8 +27,8 @@ const ReviewContainer = (props) => {
 
   return (
     <div>
-      {reviewsArray !== undefined && 
-      <h2 className="review-header">Reviews</h2>
+      {reviewsArray.length > 0 && 
+      <h3 className="review-header">Reviews</h3>
       }
       <div className="review-tiles-list-container grid-x">
         {reviewsArray}
