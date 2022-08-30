@@ -5,7 +5,7 @@ const BreweryTile = (props) => {
 
   return (
     <div className="brewery-tile-container row">
-        <div className="brewery-tile card small-4 columns">
+        <div className="brewery-tile small-4 columns">
           <div className="brewery-tile-title card-divider">
             <Link to={`/breweries/${props.id}`}>{props.name}</Link>
           </div>
@@ -15,7 +15,9 @@ const BreweryTile = (props) => {
           <div className="brewery-tile-text card-divider">
             <p>Most recent review tidbit here...</p>
           </div>
-          <p>posted by User...</p>
+          <div className="brewery-tile-user card-divider">
+            <p>posted by User...</p>
+          </div>
         </div>
     </div>
   )
