@@ -29,6 +29,8 @@ const Breweries = () => {
         name={brewery.name}
         type={brewery.brewery_type}
         address={`${brewery.street}, ${brewery.city}, ${brewery.state}, ${brewery.postal_code}, ${brewery.country}`}
+        city={brewery.city}
+        state={brewery.state}
         website={brewery.website_url}
         phone={brewery.phone}
       />
