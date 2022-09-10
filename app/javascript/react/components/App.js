@@ -4,7 +4,6 @@ import Breweries from "./Breweries/BreweriesContainer"
 import BreweryShowPage from "./Breweries/BreweryShowPage"
 
 export const App = (props) => {
-  const { value: currentUser } = useAsync(() => getUser(), []);
 
   return (
     <Router>
