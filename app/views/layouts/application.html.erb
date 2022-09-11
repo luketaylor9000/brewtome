@@ -22,17 +22,18 @@
           <% end %>
         <%- else -%>
 
-            <%= link_to new_user_registration_path do %>
+          <%= link_to new_user_registration_path do %>
             <div>
-              <button class="sign-up-button button-48" role="button"><span class="text">sign up</span></button>
+              <button class="button-48" role="button"><span class="text">sign up</span></button>
             </div>
-            <% end %>
+          <% end %>
 
           <%= link_to new_user_session_path do%>
-          <div>
-            <button class="button-48" role="button"><span class="text">sign in</span></button>
-          </div>
+            <div>
+              <button class="button-48" role="button"><span class="text">sign in</span></button>
+            </div>
           <% end %>
+          
         <%- end -%>
       </ul>
     </section>
