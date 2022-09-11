@@ -15,3 +15,12 @@
  *= require foundation_and_overrides
 
  */
+
+body {
+  background-color: #EDE7E3;
+}
+
+.flash {
+  text-align: center;
+  background-color: #EDE7E3;
+}
