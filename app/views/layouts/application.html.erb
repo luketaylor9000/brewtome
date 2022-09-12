@@ -15,27 +15,27 @@
 
 
     <section class="top-bar-section">
-      <ul class="right">
+      <div class="right">
         <%- if current_user -%>
           <%= link_to destroy_user_session_path, method: :delete do %>
-              <button class="button-48" role="button"><span class="text">sign out</span></button>
+              <div class="btn41-43 btn-43">sign out</div>
           <% end %>
         <%- else -%>
 
           <%= link_to new_user_registration_path do %>
             <div>
-              <button class="button-48" role="button"><span class="text">sign up</span></button>
+              <div class="btn41-43 btn-43">sign up</div>
             </div>
           <% end %>
 
           <%= link_to new_user_session_path do%>
             <div>
-              <button class="button-48" role="button"><span class="text">sign in</span></button>
+              <div class="btn41-43 btn-43">sign in</div>
             </div>
           <% end %>
-          
+
         <%- end -%>
-      </ul>
+      </div>
     </section>
   </nav>
 
