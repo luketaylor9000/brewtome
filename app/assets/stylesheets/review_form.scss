@@ -6,6 +6,8 @@
   margin-left: auto;
   margin-right: auto;
   max-width: 30em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .submit-review-header {
@@ -14,7 +16,6 @@
 
 .review-button-div {
   text-align: center;
-  margin: 2em;
 }
 
 .review-button-clear {
@@ -27,4 +28,52 @@
   height: 3em;
   width: 6em;
   margin-left: 1em;
+}
+
+.new-review-dropdown {
+
+  body {background-color : #ededed; font-family : "Open Sans", sans-serif;}
+
+h1 {padding: 40px; text-align: center; font-size: 1.5em;}
+
+.new-review-form a {text-decoration : none; color : #2d2f31;}
+
+div {
+  width : 25em; 
+  background: #d9d9d9;
+  margin : auto; 
+}
+
+span {
+  text-align: center;
+  padding : 30px;
+  background : #2d2f31; 
+  color : white;
+  font-size : 1.2em;
+  font-variant : small-caps;
+  cursor : pointer;
+  display: block;
+}
+
+span::after {
+  float: right;
+  right: 10%;
+  content: "+";
+}
+
+.slide {
+  clear:both;
+  width:100%;
+  height:0px;
+  overflow: hidden;
+  text-align: center;
+  transition: height .4s ease;
+}
+
+.slide li {padding : 30px;}
+
+#touch {position: absolute; opacity: 0; height: 0px;}    
+
+#touch:checked + .slide {height: 300px;} 
+
 }

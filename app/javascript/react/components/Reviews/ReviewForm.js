@@ -71,48 +71,60 @@ const ReviewForm = ({ addReview }) => {
 
   return (
     <Fragment>
-      <form className="new-review-form" onSubmit={onSubmitHandler}>
-        <h2 className="submit-review-header">Submit A Review</h2>
-        <ErrorList errors={errors} />
-        <label className="new-review-form-label">Rating</label>
-        <select
-          className="new-review-form-text-box-rating"
-          id="rating"
-          onChange={handleInputChange}
-          value={addNewReview.rating}
-        >
-          {starSelector}
-        </select>
 
-        <label className="new-review-form-label">
-          Title
-          <input
-            className="new-review-form-text-box"
-            type="text"
-            id="title"
-            onChange={handleInputChange}
-            value={addNewReview.title}
-          />
-        </label>
+      <div className="new-review-dropdown">
+        <div className="new-review-dropdown-container">
 
-        <label className="new-review-form-label">
-          Body
-          <input
-            className="new-review-form-text-box"
-            type="text"
-            id="body"
-            onChange={handleInputChange}
-            value={addNewReview.body}
-          />
-        </label>
+      <label for="touch"><span>Submit a New Review</span></label>               
+      <input type="checkbox" id="touch"/> 
 
-        <div className="review-button-div">
-          <button className="review-button-clear button" onClick={clearForm}>
-            Clear
-          </button>
-          <input className="review-button-submit button" type="submit" value="Submit" />
+      <div class="slide review-form-div">
+        <div classname="review-form-div">
+          <form className="new-review-form" onSubmit={onSubmitHandler}>              <ErrorList errors={errors} />
+              <label className="new-review-form-label">Rating</label>
+              <select
+                className="new-review-form-text-box-rating"
+                id="rating"
+                onChange={handleInputChange}
+                value={addNewReview.rating}
+              >
+                {starSelector}
+              </select>
+
+              <label className="new-review-form-label">
+                Title
+                <input
+                  className="new-review-form-text-box"
+                  type="text"
+                  id="title"
+                  onChange={handleInputChange}
+                  value={addNewReview.title}
+                />
+              </label>
+
+              <label className="new-review-form-label">
+                Body
+                <input
+                  className="new-review-form-text-box"
+                  type="text"
+                  id="body"
+                  onChange={handleInputChange}
+                  value={addNewReview.body}
+                />
+              </label>
+
+              <div className="review-button-div">
+                <button className="review-button-clear button" onClick={clearForm}>
+                  Clear
+                </button>
+                <input className="review-button-submit button" type="submit" value="Submit" />
+              </div>
+            </form>
+            </div>
+          </div>
         </div>
-      </form>
+      </div> 
+      
     </Fragment>
   );
 };
