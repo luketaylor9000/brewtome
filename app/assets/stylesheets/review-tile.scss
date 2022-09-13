@@ -4,24 +4,102 @@
   margin-right: auto;
 }
 
-.review-tile {
-  height: auto;
-  width: 20em;
-  
-}
-
-.review-tile-title {
-  height: 3.5em;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.review-tile-body {
-  height: 5em;
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
+figure.snip1232 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  padding-top: 15px;
+  min-width: 220px;
+  max-width: 310px;
   width: 100%;
-  display: flex;
-  overflow-y: scroll;
-  margin-left: auto;
-  margin-right: auto;
+  color: #333;
+  text-align: left;
+  box-shadow: none !important;
+}
+figure.snip1232 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+figure.snip1232 img {
+  max-width: 100%;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  margin-right: 5px;
+  display: block;
+  z-index: 1;
+  position: absolute;
+  right: 50%;
+  background-color: #EDDEA4;
+  border-color: #0FA3B1;
+  border-width: 1px;
+  border-style: solid;
+}
+figure.snip1232 blockquote {
+  width: 22em;
+  margin: 0;
+  display: block;
+  border-radius: 8px;
+  position: relative;
+  background-color: #fafafa;
+  padding: 65px 50px 35px 50px;
+  font-size: 0.8em;
+  font-weight: 500;
+  margin: -40px 0 0;
+  line-height: 1.6em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+figure.snip1232 blockquote:before,
+figure.snip1232 blockquote:after {
+  font-family: 'FontAwesome';
+  content: "\201C";
+  position: absolute;
+  font-size: 50px;
+  opacity: 0.3;
+  font-style: normal;
+}
+figure.snip1232 blockquote:before {
+  top: 55px;
+  left: 20px;
+}
+figure.snip1232 blockquote:after {
+  content: "\201D";
+  right: 20px;
+  bottom: 5px;
+}
+figure.snip1232 .review-title {
+  margin: 0;
+  height: 80px;
+  display: block;
+  text-align: left;
+  padding: 0 35px;
+  position: relative;
+  z-index: 1;
+}
+figure.snip1232 .review-title h5,
+figure.snip1232 .review-title span  {
+  left: 50%;
+  position: absolute;
+  opacity: 0.8;
+  padding: 3px 5px;
+}
+figure.snip1232 .review-title h5 {
+  text-transform: uppercase;
+  bottom: 50%;
+  margin: 0;
+  font-weight: 800;
+  color: #000000;
+}
+figure.snip1232 .review-title span {
+  font-size: 0.8em;
+  color: #000000;
+  top: 50%;
+  font-weight: 500;
+}
+
+figure.snip1232 p {
+  text-align: right;
 }
