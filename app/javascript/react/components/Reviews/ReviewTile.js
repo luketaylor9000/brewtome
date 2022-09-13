@@ -2,26 +2,17 @@ import React from "react";
 
 const ReviewTile = (props) => {
   return (
-    <div className="review-tile-container row">
-      <div className="review-tile card small-4 columns">
-          <div className="review-tile-title card-divider">
-            <p>{props.title}</p>
-          </div>
-          <div className="review-tile-rating card-divider">
-            <p>{props.rating} </p>
-          </div>
-          <div className="review-tile-body card-divider">
-            <p>{props.body}</p>
-          </div>
-          <div className="review-tile-username card-divider">
-            <p>{props.username}</p>
-          </div>
-          <div className="review-tile-date card-divider">
-              <p>{props.date}</p>
-          </div>
-      </div>
+    <div className="review-tile-container">
+      <figure className="snip1232">
+        <div className="review-title">
+          <img src="https://s3.amazonaws.com/rsportz-production/people/avatars/000/260/833/large/default-profile.png?1533229438" alt="sq-sample7"/>
+          <h5>{props.title}</h5>
+          <span>{props.rating}</span>
+        </div>
+        <blockquote>{props.body}<p>-{props.username}</p><p>{props.date}</p></blockquote>
+      </figure>
     </div>
-  );
+  )
 };
 
 export default ReviewTile;
