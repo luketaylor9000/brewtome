@@ -8,72 +8,74 @@
   max-width: 30em;
   margin-left: 1em;
   margin-right: 1em;
-}
-
-.submit-review-header {
-  text-align: center;
-}
-
-.review-button-div {
-  text-align: center;
+  margin-bottom: 2em;
 }
 
 .review-button-clear {
   height: 3em;
   width: 6em;
   margin-right: 1em;
+  background-color: #F7A072;
+  border-radius: 0.5em;
 }
 
 .review-button-submit {
   height: 3em;
   width: 6em;
   margin-left: 1em;
+  background-color: #1C6E8C;
+  border-radius: 0.5em;
 }
 
 .new-review-dropdown {
 
-  body {background-color : #ededed; font-family : "Open Sans", sans-serif;}
+  margin-top: 2em;
+  margin-bottom: 2em;
+  
+  body { background-color: #ededed; font-family:Arial, Helvetica, sans-serif;}
 
-h1 {padding: 40px; text-align: center; font-size: 1.5em;}
+  h1 {padding: 40px; text-align: center; font-size: 1.5em;}
 
-.new-review-form a {text-decoration : none; color : #2d2f31;}
+  .new-review-form {text-decoration : none; color : #2d2f31;}
 
-div {
-  width : 25em; 
-  background: #d9d9d9;
-  margin : auto; 
-}
+  div {
+    width : 20em; 
+    height: auto;
+    background: #d9d9d9;
+    margin : auto; 
+    border-radius: 1em;
+  }
 
-span {
-  text-align: center;
-  padding : 30px;
-  background : #2d2f31; 
-  color : white;
-  font-size : 1.2em;
-  font-variant : small-caps;
-  cursor : pointer;
-  display: block;
-}
+  span {
+    text-align: center;
+    padding : 10px;
+    background : #605856; 
+    color : white;
+    font-size : 1.2em;
+    cursor : pointer;
+    display: block;
+    border-radius: 1em;
+  }
 
-span::after {
-  float: right;
-  right: 10%;
-  content: "+";
-}
+  span::after {
+    float: right;
+    right: 10%;
+    content: "+";
+  }
 
-.slide {
-  clear:both;
-  width:100%;
-  height:0px;
-  overflow: hidden;
-  text-align: center;
-  transition: height .4s ease;
-}
+  .slide {
+    clear:both;
+    width:100%;
+    height:0px;
+    overflow: hidden;
+    text-align: center;
+    transition: height .4s ease;
+  }
 
-.slide li {padding : 30px;}
+  .slide li {padding : 30px;}
 
-#touch {position: absolute; opacity: 0; height: 0px;}    
+  #touch {position: absolute; opacity: 0; height: 0px;}    
 
-#touch:checked + .slide {height: 300px;} 
+  #touch:checked + .slide {height: 300px;   margin-bottom: 2em;} 
 
 }

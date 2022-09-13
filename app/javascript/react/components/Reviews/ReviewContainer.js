@@ -25,13 +25,13 @@ const ReviewContainer = (props) => {
 
   return (
     <div>
+      <ReviewForm addReview={props.addReview} />
       {reviewsArray.length > 0 && 
-      <h3 className="review-header">Reviews</h3>
+      <h3 className="review-header"></h3>
       }
       <div className="review-tiles-list-container grid-x">
         {reviewsArray}
       </div>
-      <ReviewForm addReview={props.addReview} />
     </div>
   );
 };
