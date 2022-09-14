@@ -74,13 +74,15 @@ const ReviewForm = ({ addReview }) => {
 
       <div className="new-review-dropdown">
         <div className="new-review-dropdown-container">
-
+        <div className="error-list">
+          <ErrorList errors={errors} />
+        </div>
           <label for="touch"><span>Submit a New Review</span></label>
           <input type="checkbox" id="touch" />
 
-          <div class="slide review-form-div">
-            <div classname="review-form-div">
-              <form className="new-review-form" onSubmit={onSubmitHandler}>              <ErrorList errors={errors} />
+          <div className="slide review-form-div">
+            <div className="review-form-div">
+              <form className="new-review-form" onSubmit={onSubmitHandler}>
                 <label className="new-review-form-label">Rating</label>
                 <select
                   className="new-review-form-text-box-rating"
@@ -118,7 +120,6 @@ const ReviewForm = ({ addReview }) => {
                   Clear
                 </button>
                 <input className="review-button-submit button" type="submit" value="Submit" />
-
               </form>
             </div>
           </div>
