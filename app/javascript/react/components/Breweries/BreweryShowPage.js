@@ -74,7 +74,7 @@ const BreweryShowPage = (props) => {
           phone={brewery.phone}
         />
       </div>
-      <div>
+      <div className="reviews-container">
         <ReviewContainer reviews={reviews} addReview={addReview} />
       </div>
     </div>

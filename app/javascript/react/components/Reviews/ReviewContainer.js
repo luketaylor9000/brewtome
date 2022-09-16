@@ -2,6 +2,7 @@ import React from "react";
 import ReviewTile from "./ReviewTile";
 import moment from "moment";
 import ReviewForm from "./ReviewForm";
+import ReviewAccordion from "./ReviewAccordion";
 
 const ReviewContainer = (props) => {
 
@@ -25,13 +26,14 @@ const ReviewContainer = (props) => {
 
   return (
     <div>
+      <ReviewAccordion addReview={props.addReview}/>
+      {/* <ReviewForm addReview={props.addReview} /> */}
       {reviewsArray.length > 0 && 
-      <h3 className="review-header">Reviews</h3>
+      <h3 className="review-header"></h3>
       }
       <div className="review-tiles-list-container grid-x">
         {reviewsArray}
       </div>
-      <ReviewForm addReview={props.addReview} />
     </div>
   );
 };

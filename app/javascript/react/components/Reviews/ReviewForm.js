@@ -9,7 +9,7 @@ let stars = (stars = [
   "⭐️⭐️⭐️⭐️",
   "⭐️⭐️⭐️⭐️⭐️",
 ]);
-const ReviewForm = ({ addReview }) => {
+const ReviewForm = ({ addReview, closeDropdown }) => {
   const [errors, setErrors] = useState({});
   const [addNewReview, setAddNewReview] = useState({
     rating: "",
@@ -59,6 +59,7 @@ const ReviewForm = ({ addReview }) => {
         title: "",
         body: "",
       });
+      closeDropdown()
     }
   };
   const starSelector = stars.map((star) => {
@@ -71,9 +72,11 @@ const ReviewForm = ({ addReview }) => {
 
   return (
     <Fragment>
+      <div className="error-list">
+          <ErrorList errors={errors} />
+      </div>
+
       <form className="new-review-form" onSubmit={onSubmitHandler}>
-        <h2 className="submit-review-header">Submit A Review</h2>
-        <ErrorList errors={errors} />
         <label className="new-review-form-label">Rating</label>
         <select
           className="new-review-form-text-box-rating"
@@ -97,7 +100,7 @@ const ReviewForm = ({ addReview }) => {
 
         <label className="new-review-form-label">
           Body
-          <input
+          <textarea
             className="new-review-form-text-box"
             type="text"
             id="body"
@@ -106,12 +109,10 @@ const ReviewForm = ({ addReview }) => {
           />
         </label>
 
-        <div className="review-button-div">
-          <button className="review-button-clear button" onClick={clearForm}>
-            Clear
-          </button>
-          <input className="review-button-submit button" type="submit" value="Submit" />
-        </div>
+        <button className="review-button-clear button" onClick={clearForm}>
+          Clear
+        </button>
+        <input className="review-button-submit button" type="submit" value="Submit" />
       </form>
     </Fragment>
   );
