@@ -1,18 +1,16 @@
 
 .brewery-top-section {
-  // background-color: #c2b175;
   text-align: center;
   display: inline-block;
   overflow: hidden;
   position: relative;
   width: 100%;
   height: 20em;
-  // max-height: 30em;
 
   .brewery-top-section-box {
   height: auto;
   width: auto;
-  padding: 2em;
+  padding: 1em;
   background-color: rgba(0, 0, 0, 0.236);
   border-radius: 1em;
   top: 50%;
@@ -37,7 +35,7 @@
     color: white;
   }
   .brewery-name {
-    font-size: 4vmin;
+    font-size: 6vmin;
     font-size: auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif
   }
@@ -50,6 +48,6 @@
   
   .brewery-address {
     margin-top: 0.5em;
-    font-size: 1.4vmax;
+    font-size: 2vmax;
   }
 }
