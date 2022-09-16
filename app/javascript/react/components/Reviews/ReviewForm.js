@@ -72,61 +72,6 @@ const ReviewForm = ({ addReview, closeDropdown }) => {
 
   return (
     <Fragment>
-
-      {/* <div className="new-review-dropdown">
-        <div className="new-review-dropdown-container">
-        <div className="error-list">
-          <ErrorList errors={errors} />
-        </div>
-          <label for="touch"><span>Submit a New Review</span></label>
-          <input type="checkbox" id="touch" />
-
-          <div className="slide review-form-div">
-            <div className="review-form-div">
-              <form className="new-review-form" onSubmit={onSubmitHandler}>
-                <label className="new-review-form-label">Rating</label>
-                <select
-                  className="new-review-form-text-box-rating"
-                  id="rating"
-                  onChange={handleInputChange}
-                  value={addNewReview.rating}
-                >
-                  {starSelector}
-                </select>
-
-                <label className="new-review-form-label">
-                  Title
-                  <input
-                    className="new-review-form-text-box"
-                    type="text"
-                    id="title"
-                    onChange={handleInputChange}
-                    value={addNewReview.title}
-                  />
-                </label>
-
-                <label className="new-review-form-label">
-                  Body
-                  <textarea
-                    className="new-review-form-text-box"
-                    type="text"
-                    id="body"
-                    onChange={handleInputChange}
-                    value={addNewReview.body}
-                  />
-                </label>
-
-
-                <button className="review-button-clear button" onClick={clearForm}>
-                  Clear
-                </button>
-                <input className="review-button-submit button" type="submit" value="Submit"/>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <div className="error-list">
           <ErrorList errors={errors} />
       </div>
@@ -163,7 +108,6 @@ const ReviewForm = ({ addReview, closeDropdown }) => {
             value={addNewReview.body}
           />
         </label>
-
 
         <button className="review-button-clear button" onClick={clearForm}>
           Clear

@@ -12,12 +12,14 @@ const ReviewAccordion = (props) => {
 
   return (
     <div className="review-accordion">
-      <li className="accordion-item">
-        <div className="accordion-toggle" onClick={() => setIsActive(!isActive)}>
-          <h3>submit a new review</h3><span>{isActive ? "-" : "+"}</span>
+      <div className="accordion-item">
+        <button className="accordion-toggle" onClick={() => setIsActive(!isActive)}>
+          <h4>submit a new review</h4><span>{isActive ? "-" : "+"}</span>
+        </button>
+        <div className="accordion-review-form">
+        {isActive && <div><ReviewForm closeDropdown={toggleIsActive} addReview={props.addReview}/></div>}
         </div>
-        {isActive && <div className=""><ReviewForm closeDropdown={toggleIsActive} addReview={props.addReview}/></div>}
-      </li>
+      </div>
     </div>
   );
 }
