@@ -1,10 +1,11 @@
 import React from "react";
+import BreweryBannerRandomizer from "./BreweryBannerRandomizer";
 
 const BreweryTopSection = (props) => {
   return (
     <div className="brewery-top-section">
         <div className="brewery-banner-photo">
-          <img src="https://www.bigoysterbrewery.com/images/flic/galleries/9/original/29_big-oyster-bar.jpg" alt="brewery banner background" />
+          <BreweryBannerRandomizer />
         </div>
       <div className="brewery-top-section-box">
         <div className="brewery-info">
