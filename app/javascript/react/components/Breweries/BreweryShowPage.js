@@ -54,11 +54,10 @@ const BreweryShowPage = (props) => {
       }
     })
     .then(function (response) {
-      console.log(response);
-      setReviews(reviews.concat(response.data.review));
     })
     .catch(function (error) {
       console.log(error);
+      alert(error.response.data.error)
     });
   }
 
