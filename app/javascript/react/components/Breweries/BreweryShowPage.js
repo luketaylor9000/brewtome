@@ -6,6 +6,7 @@ import BreweryTopSection from './BreweryTopSection';
 const BreweryShowPage = (props) => {
   const [brewery, setBrewery] = useState({});
   const [reviews, setReviews] = useState([]);
+  const [addReviewError, setAddReviewError] = useState([])
 
   let breweryId = props.match.params.id;
   
@@ -59,6 +60,7 @@ const BreweryShowPage = (props) => {
     })
     .catch(function (error) {
       console.log(error);
+      setAddReviewError(error.response.data.error)
     });
   }
 
@@ -74,6 +76,11 @@ const BreweryShowPage = (props) => {
           phone={brewery.phone}
         />
       </div>
+      {addReviewError.length > 0 &&
+        <div className="callout alert text-center">
+          {addReviewError.toUpperCase()}
+        </div>
+      }
       <div className="reviews-container">
         <ReviewContainer reviews={reviews} addReview={addReview} />
       </div>
