@@ -6,7 +6,7 @@ import BreweryTopSection from './BreweryTopSection';
 const BreweryShowPage = (props) => {
   const [brewery, setBrewery] = useState({});
   const [reviews, setReviews] = useState([]);
-  // const [addReviewError, setAddReviewError] = useState([])
+  const [addReviewError, setAddReviewError] = useState([])
 
   let breweryId = props.match.params.id;
   
@@ -55,11 +55,12 @@ const BreweryShowPage = (props) => {
       }
     })
     .then(function (response) {
+      console.log(response);
+      setReviews(reviews.concat(response.data.review));
     })
     .catch(function (error) {
       console.log(error);
-      alert(error.response.data.error)
-      // setAddReviewError(error.response.data.error)
+      setAddReviewError(error.response.data.error)
     });
   }
 
@@ -75,12 +76,11 @@ const BreweryShowPage = (props) => {
           phone={brewery.phone}
         />
       </div>
-      {/* {addReviewError.length > 0 &&
+      {addReviewError.length > 0 &&
         <div className="callout alert text-center">
           {addReviewError.toUpperCase()}
         </div>
-      } */}
-      {/* for whatever reason when I have the above code makes it so when user is logged in their review isn't shown unless the page is refreshed */}
+      }
       <div className="reviews-container">
         <ReviewContainer reviews={reviews} addReview={addReview} />
       </div>
