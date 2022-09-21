@@ -55,6 +55,8 @@ const BreweryShowPage = (props) => {
           address={`${brewery.street}, ${brewery.city}, ${brewery.state}, ${brewery.postal_code}, ${brewery.country}`}
           website={brewery.website_url}
           phone={brewery.phone}
+          id={brewery.id}
+          obdbid={brewery.obdb_id}
         />
       </div>
       {addReviewError.length > 0 &&
