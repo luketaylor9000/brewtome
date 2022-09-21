@@ -1,7 +1,9 @@
 import React from "react";
 
 const BreweryTopSection = (props) => {
-// debugger
+
+  const logo = `https://logo.clearbit.com/${props.website}?size=150`
+
   return (
     <div className="brewery-top-section">
         <div className="brewery-banner-photo">
@@ -9,17 +11,15 @@ const BreweryTopSection = (props) => {
         </div>
       <div className="brewery-top-section-box">
         <div className="brewery-info">
-
           <div className="brewery-logo">
-            <img className="clearbit-img" src={`https://logo.clearbit.com/${props.website}?size=150`} alt="brewery logo"/>
+            <img className="clearbit-img"
+              src={logo} alt="brewery logo"
+              onError={({ currentTarget }) => {
+                // currentTarget.onerror = null; // prevents looping
+                currentTarget.style.display = 'none'
+              }}
+            />
           </div>
-          
-        {/* <img className="brewery_logo" src={`../images/brewery_logos/${props.obdbid}_logo.png`} alt="brewery logo"/> */}
-        {/* <img className="brewery_logo" src={`../../../../assets/images/brewery_logos/${props.obdbid}_logo.png`} alt="brewery logo"/> */}
-        {/* <img className="brewery_logo" src={`app/assets/images/brewery_logos/${props.id}_logo.png`} alt="brewery logo"/> */}
-        {/* <img className="brewery_logo" src={`../../../../assets/images/brewery_logos/${props.id}_logo.png`} alt="brewery logo"/> */}
-        {/* <img className="brewery_logo" src={require(`../../../../assets/images/brewery_logos/${props.id}_logo.png`)} alt="brewery logo"/> */}
-
           <div className="brewery-name">{props.name}</div>
           <div className="brewery-address">{props.address}</div>
           <div className="brewery-type">Brewery Type: {`${props.type}`.toUpperCase()}</div>

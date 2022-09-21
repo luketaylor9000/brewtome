@@ -12,24 +12,9 @@ class Api::V1::BreweriesController < ApiController
     brewery = params[:id]
     found_brewery = Brewery.find_by(obdb_id: brewery)
     if found_brewery.blank?
-
       response = BreweriesService.get_brewery(brewery)
-
-      brewery_url = response["website_url"]
-      logo = BreweriesService.get_brewery_logo(brewery_url)
-
-      #write logo to assets/images
-      IO.write("app/assets/images/brewery_logos/#{brewery}_logo.png", (Base64.decode64(logo)), {mode: 'wb'})
-
-      #LOGO SHOULD ONLY BE WRITTEN TO ASSETS IF THE BREWERY IS BEING SAVED TO THE DATABASE
-      #OTHERWISE IT SHOULD BE RENDERED ONLY ON THE FRONT END VIA THE THIRD PARTY API REQUEST
-      #IF LOGO CAN'T BE FOUND THEN JUST LOAD THE DEFAULT LOGO FOR THE BREWERY TILES AND
-      #DON'T LOAD THE LOGO ON THE BREWERYTOPSECTION
-      #^^^ OR Figure out how to pass the PNG data from the third party API request back to the front end^^^
-
       response[:reviews] = []
       render json: { brewery: response }
-
     else
       render json: found_brewery
     end

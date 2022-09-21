@@ -1,7 +1,5 @@
 require "uri"
 require "net/http"
-# require "paperclip"
-require 'base64'
 
 class BreweriesService
   
@@ -15,40 +13,12 @@ class BreweriesService
     url = "https://api.openbrewerydb.org/breweries/autocomplete?query=#{search}"
     api_response = Faraday.get(url)
     parsed_response = JSON.parse(api_response.body)
-    # filtered_data = "15 responses"
-    # parsed_response[0]
-    #create method inside
-    #return first 15 elements of the search response
-    #then compare search to each one of the returned elements
-    #if search === to the input then return just that
   end
 
   def self.get_brewery(brewery)
     url = "https://api.openbrewerydb.org/breweries/#{brewery}"
     api_response = Faraday.get(url)
     parsed_response = JSON.parse(api_response.body)
-  end
-
-  def self.get_brewery_logo(brewery_url)
-
-    brewery_website = brewery_url.gsub('http://www.', '')
-
-    url = URI("https://logo.clearbit.com/#{brewery_website}?size=200")
-    https = Net::HTTP.new(url.host, url.port)
-    https.use_ssl = true
-
-    request = Net::HTTP::Get.new(url)
-    
-    response = https.request(request)
-
-    png_json_data = response.body
-
-    image_data = Base64.encode64(png_json_data)
-    return image_data
-    #this turns the PNG image data into JSON ^^^
-    # binding.pry
-    # parsed_response = JSON.parse(response.body)
-    #turn parsed_response into png?   *** maybe do this on review save?
   end
 
   def self.get_persisted_brewery(brewery_id)
