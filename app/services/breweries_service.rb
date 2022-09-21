@@ -45,10 +45,6 @@ class BreweriesService
 
     image_data = Base64.encode64(png_json_data)
     return image_data
-    #this turns the PNG image data into JSON ^^^
-    # binding.pry
-    # parsed_response = JSON.parse(response.body)
-    #turn parsed_response into png?   *** maybe do this on review save?
   end
 
   def self.get_persisted_brewery(brewery_id)
@@ -57,7 +53,16 @@ class BreweriesService
 
   def self.create_brewery(brewery_id)
     brewery_json = get_brewery(brewery_id)
+
+    # binding.pry
+    brewery_url = brewery_json["website_url"]
+    logo = get_brewery_logo(brewery_url)
+    # binding.pry
+    #write logo to assets/images
+    IO.write("app/assets/images/brewery_logos/#{brewery_json["id"]}_logo.png", (Base64.decode64(logo)), {mode: 'wb'})
+
     new_brewery_params = brewery_json
+    # new_brewery_params["logo"] = `app/assets/images/brewery_logos/#{brewery_json["id"]}_logo.png`
     new_brewery_params["obdb_id"] = brewery_id
     new_brewery_params["id"] = nil
     new_brewery_params["created_at"] = nil

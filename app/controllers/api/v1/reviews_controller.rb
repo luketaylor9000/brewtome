@@ -18,7 +18,6 @@ class Api::V1::ReviewsController < ApiController
     if review.save
       render json: review
     else
-      binding.pry
       render json: { errors: review.errors.full_messages }, status: 400
     end
   end
