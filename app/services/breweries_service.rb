@@ -1,6 +1,7 @@
 require "uri"
 require "net/http"
-require "paperclip"
+# require "paperclip"
+require 'base64'
 
 class BreweriesService
   
@@ -30,7 +31,7 @@ class BreweriesService
 
   def self.get_brewery_logo(brewery_url)
 
-    brewery_website = brewery_url.gsub!('http://www.', '')
+    brewery_website = brewery_url.gsub('http://www.', '')
 
     url = URI("https://logo.clearbit.com/#{brewery_website}?size=200")
     https = Net::HTTP.new(url.host, url.port)
@@ -41,7 +42,11 @@ class BreweriesService
     response = https.request(request)
 
     png_json_data = response.body
-    binding.pry
+
+    image_data = Base64.encode64(png_json_data)
+    return image_data
+    #this turns the PNG image data into JSON ^^^
+    # binding.pry
     # parsed_response = JSON.parse(response.body)
     #turn parsed_response into png?   *** maybe do this on review save?
   end

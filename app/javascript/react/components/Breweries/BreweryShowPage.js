@@ -26,25 +26,6 @@ const BreweryShowPage = (props) => {
     fetchBrewery();
   },[]);
 
-  const submitBrewery = () => {
-    console.log("submit brewery")
-
-    axios.post('/api/v1/breweries', brewery, {
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      } 
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
-  }
-
   const addReview = async (formInput) => {
 
     axios.post(`/api/v1/breweries/${breweryId}/reviews`, formInput, {
@@ -74,6 +55,8 @@ const BreweryShowPage = (props) => {
           address={`${brewery.street}, ${brewery.city}, ${brewery.state}, ${brewery.postal_code}, ${brewery.country}`}
           website={brewery.website_url}
           phone={brewery.phone}
+          id={brewery.id}
+          obdbid={brewery.obdb_id}
         />
       </div>
       {addReviewError.length > 0 &&
