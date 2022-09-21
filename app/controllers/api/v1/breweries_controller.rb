@@ -11,12 +11,17 @@ class Api::V1::BreweriesController < ApiController
   def show
     brewery = params[:id]
     found_brewery = Brewery.find_by(obdb_id: brewery)
-
     if found_brewery.blank?
 
       response = BreweriesService.get_brewery(brewery)
+      brewery_url = response["website_url"]
+      # binding.pry
+      logo = BreweriesService.get_brewery_logo(brewery_url)
+
+
       response[:reviews] = []
       render json: { brewery: response }
+      binding.pry
     else
       render json: found_brewery
     end

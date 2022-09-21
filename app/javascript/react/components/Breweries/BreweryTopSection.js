@@ -13,6 +13,7 @@ const BreweryTopSection = (props) => {
           <div className="brewery-type">Brewery Type: {`${props.type}`.toUpperCase()}</div>
           <div className="brewery-website"><a href={props.website}>{props.website}</a></div>
           <div className="brewery-phone">{props.phone}</div>
+          {/* <img className="brewery_logo" src={`https://logo.clearbit.com/${props.website}?size=200`} alt="brewery logo"/> */}
         </div>
       </div>
     </div>

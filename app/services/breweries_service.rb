@@ -1,3 +1,7 @@
+require "uri"
+require "net/http"
+require "paperclip"
+
 class BreweriesService
   
   def self.get_breweries_by_city(search)
@@ -22,6 +26,24 @@ class BreweriesService
     url = "https://api.openbrewerydb.org/breweries/#{brewery}"
     api_response = Faraday.get(url)
     parsed_response = JSON.parse(api_response.body)
+  end
+
+  def self.get_brewery_logo(brewery_url)
+
+    brewery_website = brewery_url.gsub!('http://www.', '')
+
+    url = URI("https://logo.clearbit.com/#{brewery_website}?size=200")
+    https = Net::HTTP.new(url.host, url.port)
+    https.use_ssl = true
+
+    request = Net::HTTP::Get.new(url)
+    
+    response = https.request(request)
+
+    png_json_data = response.body
+    binding.pry
+    # parsed_response = JSON.parse(response.body)
+    #turn parsed_response into png?   *** maybe do this on review save?
   end
 
   def self.get_persisted_brewery(brewery_id)
