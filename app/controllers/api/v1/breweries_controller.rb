@@ -15,7 +15,7 @@ class Api::V1::BreweriesController < ApiController
 
       response = BreweriesService.get_brewery(brewery)
       brewery_url = response["website_url"]
-      # binding.pry
+
       logo = BreweriesService.get_brewery_logo(brewery_url)
 
 
