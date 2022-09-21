@@ -14,6 +14,7 @@ class Api::V1::ReviewsController < ApiController
 
     review.user = current_user
     review.brewery_id = persisted_brewery.id
+    review.username = review.user.username
 
     if review.save
       render json: review
