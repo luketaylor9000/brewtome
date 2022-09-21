@@ -20,11 +20,11 @@ const BreweryTile = (props) => {
             />
             <figcaption>
               <h3>{props.name}</h3>
-              <p className="recent-review text-center">
-                <div className="recent-review-rating">{recentReviewObject.rating}</div>
-                <div className="recent-review-body">"{recentReviewObject.body}"</div> 
-                <div className="recent-review-username">-{recentReviewObject.username}</div>
-              </p>
+              <div className="recent-review text-center">
+                <p className="recent-review-rating">{recentReviewObject.rating}</p>
+                <p className="recent-review-body">"{recentReviewObject.body}"</p> 
+                <p className="recent-review-username">-{recentReviewObject.username}</p>
+              </div>
             </figcaption>
           </figure>
         </Link>
