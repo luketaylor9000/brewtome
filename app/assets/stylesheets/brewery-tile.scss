@@ -13,6 +13,19 @@
   width: auto;
 }
 
+.recent-review {
+	.recent-review-rating {
+		font-size: 1.5em;
+	}
+	.recent-review-body {
+		font-size: 1.2em;
+	}
+	.recent-review-username {
+		text-align: right;
+		padding-right: 40px;
+	}
+}
+
 .brewery-tile-container {
 
 $base-duration: 500ms;
@@ -106,7 +119,7 @@ figure {
 		h3 {
       text-align: center;
       font-size: 24px;
-			margin: 0 0 45px;
+			margin: 0 0 10px;
 			padding: 0;
 		}
     h4 {

@@ -35,6 +35,7 @@ const Breweries = () => {
         state={brewery.state}
         website={brewery.website_url}
         phone={brewery.phone}
+        reviews={brewery.reviews}
         defaultLogo={default_beer_mug}
       />
     )
