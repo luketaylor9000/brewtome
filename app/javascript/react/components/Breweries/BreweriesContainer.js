@@ -4,6 +4,8 @@ import axios from 'axios';
 import SearchBar from '../SearchBar/SearchBar';
 import BreweryTile from './BreweryTile';
 
+import default_beer_mug from '../../../../assets/images/default_beer_mug.png'
+
 const Breweries = () => {
   const [savedBreweries, setSavedBreweries] = useState([]);
 
@@ -33,6 +35,7 @@ const Breweries = () => {
         state={brewery.state}
         website={brewery.website_url}
         phone={brewery.phone}
+        defaultLogo={default_beer_mug}
       />
     )
   })
