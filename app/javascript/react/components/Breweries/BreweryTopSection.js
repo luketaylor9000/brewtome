@@ -1,9 +1,7 @@
 import React from "react";
 
 const BreweryTopSection = (props) => {
-
   const logo = `https://logo.clearbit.com/${props.website}?size=150`
-
   return (
     <div className="brewery-top-section">
         <div className="brewery-banner-photo">
