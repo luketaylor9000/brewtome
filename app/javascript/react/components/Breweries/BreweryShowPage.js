@@ -57,6 +57,7 @@ const BreweryShowPage = (props) => {
           phone={brewery.phone}
           id={brewery.id}
           obdbid={brewery.obdb_id}
+          logo={brewery.logo}
         />
       </div>
       {addReviewError.length > 0 &&

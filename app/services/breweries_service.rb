@@ -37,4 +37,28 @@ class BreweriesService
     return brewery
   end
   
+  def self.get_brewery_logo(brewery_url)
+
+    brewery_website = brewery_url.gsub('http://www.', '')
+
+    url = URI("https://logo.clearbit.com/#{brewery_website}?size=200")
+    https = Net::HTTP.new(url.host, url.port)
+    https.use_ssl = true
+
+    request = Net::HTTP::Get.new(url)
+    
+    response = https.request(request)
+
+    png_json_data = response.body
+
+    image_data = Base64.encode64(png_json_data)
+
+    logo = "default"
+    if response.code === "200"
+      logo = "https://logo.clearbit.com/#{brewery_website}?size=200"
+    end
+    
+    return logo
+  end
+
 end

@@ -2,7 +2,7 @@ import React from "react";
 
 const BreweryTopSection = (props) => {
 
-  const logo = `https://logo.clearbit.com/${props.website}?size=150`
+  // const logo = `https://logo.clearbit.com/${props.website}?size=150`
 
   return (
     <div className="brewery-top-section">
@@ -13,7 +13,7 @@ const BreweryTopSection = (props) => {
         <div className="brewery-info">
           <div className="brewery-logo">
             <img className="clearbit-img"
-              src={logo} alt="brewery logo"
+              src={props.logo} alt="brewery logo"
               onError={({ currentTarget }) => {
                 // currentTarget.onerror = null; // prevents looping
                 currentTarget.style.display = 'none'
