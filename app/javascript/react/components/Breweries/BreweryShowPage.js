@@ -15,6 +15,7 @@ const BreweryShowPage = (props) => {
     axios.get(`/api/v1/breweries/${breweryId}`)
     .then(response => {
       const breweryDataResponse = response.data
+      breweryDataResponse.brewery.logo = `https://logo.clearbit.com/${breweryDataResponse.brewery.website_url}?size=150`
       setBrewery(breweryDataResponse.brewery);
       setReviews(breweryDataResponse.brewery.reviews);
     }).catch(err => {
@@ -57,6 +58,7 @@ const BreweryShowPage = (props) => {
           phone={brewery.phone}
           id={brewery.id}
           obdbid={brewery.obdb_id}
+          logo={brewery.logo}
         />
       </div>
       {addReviewError.length > 0 &&

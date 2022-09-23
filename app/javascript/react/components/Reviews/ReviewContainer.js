@@ -5,7 +5,7 @@ import ReviewForm from "./ReviewForm";
 import ReviewAccordion from "./ReviewAccordion";
 
 const ReviewContainer = (props) => {
-
+  
   let reviewsArray = props.reviews
 
   reviewsArray = props.reviews.map((review) => {
@@ -27,7 +27,6 @@ const ReviewContainer = (props) => {
   return (
     <div>
       <ReviewAccordion addReview={props.addReview}/>
-      {/* <ReviewForm addReview={props.addReview} /> */}
       {reviewsArray.length > 0 && 
       <h3 className="review-header"></h3>
       }
