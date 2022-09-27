@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const BreweryTile = (props) => {
-
   const logo = `https://logo.clearbit.com/${props.website}?size=260`
 
   const recentReviewObject = props.reviews[(props.reviews).length-1]
