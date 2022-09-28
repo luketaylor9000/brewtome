@@ -27,11 +27,8 @@ const ReviewContainer = (props) => {
   return (
     <div>
       <ReviewAccordion addReview={props.addReview}/>
-      {reviewsArray.length > 0 && 
-      <h3 className="review-header"></h3>
-      }
       <div className="review-tiles-list-container grid-x">
-        {reviewsArray}
+        {reviewsArray.reverse()}
       </div>
     </div>
   );

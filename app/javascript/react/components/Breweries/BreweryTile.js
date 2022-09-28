@@ -7,9 +7,9 @@ const BreweryTile = (props) => {
 
   const trimRecentReview = () => {
     const recentReview = recentReviewObject.body
-    if (recentReview.length > 140) {
+    if (recentReview.length > 120) {
       console.log('recent review is longer than 75 chars')
-      return recentReview.substring(0,140) + '...'
+      return `${recentReview.substring(0,120)}...`
     } else {
       console.log('recent review is shorter than 75 chars')
       return recentReview
