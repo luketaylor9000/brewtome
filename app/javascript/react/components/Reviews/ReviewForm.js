@@ -104,6 +104,7 @@ const ReviewForm = ({ addReview, closeDropdown }) => {
             className="new-review-form-text-box"
             type="text"
             id="body"
+            maxlength="4000"
             onChange={handleInputChange}
             value={addNewReview.body}
           />

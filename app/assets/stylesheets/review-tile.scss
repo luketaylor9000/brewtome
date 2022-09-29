@@ -48,6 +48,7 @@ figure.snip1232 img {
 }
 figure.snip1232 blockquote {
   width: 22em;
+  height: 20em;
   margin: 0;
   display: block;
   border-radius: 8px;
@@ -59,6 +60,7 @@ figure.snip1232 blockquote {
   margin: -40px 0 0;
   line-height: 1.6em;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  overflow-y: scroll;
 }
 figure.snip1232 blockquote:before,
 figure.snip1232 blockquote:after {
@@ -110,4 +112,8 @@ figure.snip1232 .review-title span {
 
 figure.snip1232 p {
   text-align: right;
+}
+
+blockquote::-webkit-scrollbar {
+  display: none;
 }
