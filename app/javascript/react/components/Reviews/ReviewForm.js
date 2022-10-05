@@ -95,6 +95,7 @@ const ReviewForm = ({ addReview, closeDropdown }) => {
             id="title"
             onChange={handleInputChange}
             value={addNewReview.title}
+            maxlength="10"
           />
         </label>
 
