@@ -5,7 +5,7 @@ const BreweryTopSection = (props) => {
   return (
     <div className="brewery-top-section">
         <div className="brewery-banner-photo">
-          <img src="https://www.bigoysterbrewery.com/images/flic/galleries/9/original/29_big-oyster-bar.jpg" alt="brewery banner background" />
+          {/* <img src="https://www.bigoysterbrewery.com/images/flic/galleries/9/original/29_big-oyster-bar.jpg" alt="brewery banner background" /> */}
         </div>
       <div className="brewery-top-section-box">
         <div className="brewery-info">

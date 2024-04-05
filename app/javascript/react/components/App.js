@@ -13,6 +13,19 @@ export const App = (props) => {
         <Route exact path="/breweries/:id" component={BreweryShowPage} />
       </Switch>
     </Router>
+    <div className="bubbles">
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+      </div>
     </div>
   )
 }
