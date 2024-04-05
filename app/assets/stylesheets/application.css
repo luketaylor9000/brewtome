@@ -19,7 +19,7 @@
 body {
   position: relative;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   background-color: #f3ae1a;
   background: linear-gradient(0deg, #f3ae1a 0%, #fde8a1 100%);
 }
